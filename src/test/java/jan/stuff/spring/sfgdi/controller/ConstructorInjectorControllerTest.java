@@ -1,6 +1,6 @@
 package jan.stuff.spring.sfgdi.controller;
 
-import jan.stuff.spring.sfgdi.services.HelloServiceImpl;
+import jan.stuff.spring.sfgdi.services.HelloConstructorInjectedServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,12 +12,12 @@ class ConstructorInjectorControllerTest {
 
     @BeforeEach
     public void setUp() {
-        controller = new ConstructorInjectorController(new HelloServiceImpl());
+        controller = new ConstructorInjectorController(new HelloConstructorInjectedServiceImpl());
     }
 
     @Test
     public  void shouldReturnGenericHello() {
-        assertEquals("Hello generic World!", controller.sayGreeting());
+        assertEquals("Hello Constructor World!", controller.sayGreeting());
     }
 
 

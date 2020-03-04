@@ -1,7 +1,7 @@
 package jan.stuff.spring.sfgdi.controller;
 
-import jan.stuff.spring.sfgdi.services.HelloService;
-import jan.stuff.spring.sfgdi.services.HelloServiceImpl;
+import jan.stuff.spring.sfgdi.services.HelloConstructorInjectedServiceImpl;
+import jan.stuff.spring.sfgdi.services.HelloPropertyInjectorServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,12 +14,12 @@ class PropertyInjectorControllerTest {
     @BeforeEach
     void setUp() {
         controller = new PropertyInjectorController();
-        controller.greetingService = new HelloServiceImpl();
+        controller.greetingService = new HelloPropertyInjectorServiceImpl();
     }
 
     @Test
     void testGetGreetingShouldReturnHello() {
-        assertEquals("Hello generic World!", controller.sayGreeting());
+        assertEquals("Hello Property World!", controller.sayGreeting());
     }
 
     @Test

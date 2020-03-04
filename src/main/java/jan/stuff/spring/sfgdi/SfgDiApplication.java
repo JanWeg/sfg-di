@@ -18,7 +18,7 @@ public class SfgDiApplication {
 
 
 		String greeting = runSimpleService(ctx);
-		System.out.println("Main: Bsae: " + greeting);
+		System.out.println("Main: Base: " + greeting);
 
 
 		greeting = getPropertyInjectedGreeting(ctx);
@@ -35,6 +35,15 @@ public class SfgDiApplication {
 
 	}
 
+
+	private static String  runSimpleService(ApplicationContext ctx) {
+		HelloController helloController = (HelloController) ctx.getBean("helloController");
+		String greeting = helloController.sayHello();
+
+		return greeting;
+	}
+
+
 	private static String getPropertyInjectedGreeting(ApplicationContext ctx) {
 		String greeting;
 		PropertyInjectorController propertyInjectorController = (PropertyInjectorController) ctx.getBean("propertyInjectorController");
@@ -43,10 +52,8 @@ public class SfgDiApplication {
 	}
 
 	private static String getSetterInjectedString(ApplicationContext ctx) {
-		String greeting;
 		SetterInjectedController setterInjector = (SetterInjectedController) ctx.getBean("setterInjectedController");
-		greeting = setterInjector.sayGretting();
-		return greeting;
+		return setterInjector.sayGretting();
 	}
 
 	private static String getCtorInjectedString(ApplicationContext ctx) {
@@ -55,11 +62,5 @@ public class SfgDiApplication {
 		return constructorInjectorController.sayGreeting();
 	}
 
-	private static String  runSimpleService(ApplicationContext ctx) {
-		HelloController helloController = (HelloController) ctx.getBean("helloController");
-		String greeting = helloController.sayHello();
-
-		return greeting;
-	}
 
 }

@@ -2,6 +2,7 @@ package jan.stuff.spring.sfgdi.controller;
 
 import jan.stuff.spring.sfgdi.services.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
@@ -16,7 +17,7 @@ public class ConstructorInjectorController {
         helloService = null;
     }*/
 
-    public ConstructorInjectorController(HelloService helloService) {
+    public ConstructorInjectorController(@Qualifier("helloConstructorInjectedServiceImpl") HelloService helloService) {
         this.helloService = helloService;
     }
 
