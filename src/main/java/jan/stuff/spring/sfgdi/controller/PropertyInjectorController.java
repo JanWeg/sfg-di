@@ -1,6 +1,8 @@
 package jan.stuff.spring.sfgdi.controller;
 
 import jan.stuff.spring.sfgdi.services.HelloService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 /** Simple example for  property based Injection.
  *
@@ -18,8 +20,10 @@ import jan.stuff.spring.sfgdi.services.HelloService;
  * Details in the test:
  *   jan.stuff.spring.sfgdi.controller.PropertyInjectorController.class
   */
+@Controller
 public class PropertyInjectorController {
 
+    @Autowired
     public HelloService greetingService;
 
     public String sayGreeting() {

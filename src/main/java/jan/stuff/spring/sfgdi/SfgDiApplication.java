@@ -1,6 +1,9 @@
 package jan.stuff.spring.sfgdi;
 
+import jan.stuff.spring.sfgdi.controller.ConstructorInjectorController;
 import jan.stuff.spring.sfgdi.controller.HelloController;
+import jan.stuff.spring.sfgdi.controller.PropertyInjectorController;
+import jan.stuff.spring.sfgdi.controller.SetterInjectedController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,10 +16,50 @@ public class SfgDiApplication {
 
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
 
+
+		String greeting = runSimpleService(ctx);
+		System.out.println("Main: Bsae: " + greeting);
+
+
+		greeting = getPropertyInjectedGreeting(ctx);
+		System.out.println("Main: PptyInjC: " + greeting);
+
+
+		greeting = getSetterInjectedString(ctx);
+		System.out.println("Main: SetInjC: " + greeting);
+
+
+		greeting = getCtorInjectedString(ctx);
+		System.out.println("Main: CtorInjC" + greeting);
+
+
+	}
+
+	private static String getPropertyInjectedGreeting(ApplicationContext ctx) {
+		String greeting;
+		PropertyInjectorController propertyInjectorController = (PropertyInjectorController) ctx.getBean("propertyInjectorController");
+		greeting = propertyInjectorController.sayGreeting();
+		return greeting;
+	}
+
+	private static String getSetterInjectedString(ApplicationContext ctx) {
+		String greeting;
+		SetterInjectedController setterInjector = (SetterInjectedController) ctx.getBean("setterInjectedController");
+		greeting = setterInjector.sayGretting();
+		return greeting;
+	}
+
+	private static String getCtorInjectedString(ApplicationContext ctx) {
+		ConstructorInjectorController constructorInjectorController
+				= (ConstructorInjectorController) ctx.getBean("constructorInjectorController");
+		return constructorInjectorController.sayGreeting();
+	}
+
+	private static String  runSimpleService(ApplicationContext ctx) {
 		HelloController helloController = (HelloController) ctx.getBean("helloController");
 		String greeting = helloController.sayHello();
 
-		System.out.println("Main: " + greeting);
+		return greeting;
 	}
 
 }
