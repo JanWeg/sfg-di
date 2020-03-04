@@ -16,7 +16,7 @@ import jan.stuff.spring.sfgdi.services.HelloService;
  * </code>
  *
  * Details in the test:
- * @see  jan.stuff.spring.sfgdi.controller.PropertyInjectorControllerTest.class
+ *   jan.stuff.spring.sfgdi.controller.PropertyInjectorController.class
   */
 public class PropertyInjectorController {
 
