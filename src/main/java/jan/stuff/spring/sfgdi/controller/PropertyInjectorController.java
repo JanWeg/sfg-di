@@ -2,6 +2,7 @@ package jan.stuff.spring.sfgdi.controller;
 
 import jan.stuff.spring.sfgdi.services.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 /** Simple example for  property based Injection.
@@ -23,6 +24,7 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class PropertyInjectorController {
 
+    @Qualifier("helloPropertyInjectorServiceImpl")
     @Autowired
     public HelloService greetingService;
 
