@@ -17,6 +17,11 @@ While the first two (Porperty- and Setter-based) bear some shortcommings. I like
 does not take to many arguments, I prefer it over the setter based approach. 
 
 
-## Next Step
+## Annotated Service and Controller
  
-I considder marking the classes with appropriate Spring-stereotypes. 
+Now the afore mentioned Classes are annotated as Service, Controller and the Propery is correctly assigned using the 
+"autowire" annotation. Still the Setter- and the Constructor-Injected Porperties are preferred.
+
+## What Next ...
+Have some different Services called
+ 
